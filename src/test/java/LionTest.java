@@ -37,11 +37,13 @@ public class LionTest {
 
     @Test
     public void lionConstructorClassExceptionCheck() {
+        String actual = "Exception is gone";
         try {
             Lion lion = new Lion("Другой", new Feline());
         } catch (Exception thrown) {
-            assertEquals("Exception is not equals expected","Используйте допустимые значения пола животного - самец или самка", thrown.getMessage());
+            actual = thrown.getMessage();
         }
+        assertEquals("Exception is not returns or not equals expected","Используйте допустимые значения пола животного - самец или самка", actual);
     }
 
     @Mock
