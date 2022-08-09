@@ -1,10 +1,7 @@
 import com.example.Feline;
 import com.example.Lion;
-import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -14,27 +11,11 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(JUnitParamsRunner.class)
 public class LionTest {
-
     @Before
     public void setUp() {
         MockitoAnnotations.openMocks(this);
     }
-
-    @Test
-    @Parameters({
-            "Самец, true",
-            "Самка, false"
-    })
-    public void lionConstructorClassSetCorrectHasMane(String sex, boolean expected) throws Exception {
-        Lion lion = new Lion(sex, new Feline());
-
-        boolean actual = lion.doesHaveMane();
-
-        assertEquals("Boolean hasMan have incorrect value", expected, actual);
-    }
-
     @Test
     public void lionConstructorClassExceptionCheck() {
         String actual = "Exception is gone";
@@ -73,5 +54,4 @@ public class LionTest {
     }
 
 }
-
 
