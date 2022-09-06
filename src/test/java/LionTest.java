@@ -27,13 +27,13 @@ public class LionTest {
         assertEquals("Exception is not returns or not equals expected","Используйте допустимые значения пола животного - самец или самка", actual);
     }
 
-    @Mock
+    @Spy
     Feline feline = new Feline();
     @Test
     public void getKittensReturnsCorrectNumbersOfKittens() throws Exception {
         Lion lion = new Lion("Самец", feline);
         int expected = 1;
-        Mockito.when(feline.getKittens()).thenReturn(1);
+        Mockito.when(feline.getKittens(1)).thenReturn(1);
 
         int actual = lion.getKittens();
 
